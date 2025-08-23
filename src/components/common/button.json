@@ -1,0 +1,31 @@
+{
+  "collectionName": "components_common_buttons",
+  "info": {
+    "displayName": "Button"
+  },
+  "options": {},
+  "attributes": {
+    "label": {
+      "type": "string",
+      "required": true
+    },
+    "url": {
+      "type": "string"
+    },
+    "style": {
+      "type": "enumeration",
+      "enum": [
+        "primary",
+        "secondary",
+        "link"
+      ],
+      "default": "primary"
+    },
+    "newTab": {
+      "type": "boolean",
+      "default": false
+    }
+  },
+  "config": {}
+}
+

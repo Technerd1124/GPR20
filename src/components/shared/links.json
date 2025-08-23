@@ -1,0 +1,34 @@
+{
+  "collectionName": "components_shared_links_s",
+  "info": {
+    "displayName": "Links "
+  },
+  "options": {},
+  "attributes": {
+    "Label": {
+      "type": "string"
+    },
+    "URL": {
+      "type": "string",
+      "required": false
+    },
+    "isButton": {
+      "type": "boolean",
+      "default": false
+    },
+    "ButtonType": {
+      "type": "enumeration",
+      "enum": [
+        "link",
+        "Primary",
+        "Secondary"
+      ]
+    },
+    "Links": {
+      "type": "component",
+      "component": "shared.sublink",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}

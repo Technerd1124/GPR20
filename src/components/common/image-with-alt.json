@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_common_image_with_alts",
+  "info": {
+    "displayName": "Image With Alt"
+  },
+  "options": {},
+  "attributes": {
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "alt": {
+      "type": "string"
+    }
+  },
+  "config": {}
+}
+

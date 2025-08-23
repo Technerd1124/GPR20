@@ -1,0 +1,25 @@
+{
+  "kind": "singleType",
+  "collectionName": "headers",
+  "info": {
+    "singularName": "header",
+    "pluralName": "headers",
+    "displayName": "Header"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "NAVLINK": {
+      "type": "component",
+      "component": "shared.links",
+      "repeatable": true
+    },
+    "lOGO": {
+      "type": "component",
+      "component": "logo.logo",
+      "repeatable": true
+    }
+  }
+}

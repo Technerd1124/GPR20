@@ -1,0 +1,30 @@
+{
+  "collectionName": "components_shared_sublinks",
+  "info": {
+    "displayName": "Sublink"
+  },
+  "options": {},
+  "attributes": {
+    "Label": {
+      "type": "string"
+    },
+    "url": {
+      "type": "text"
+    },
+    "isButton": {
+      "type": "boolean",
+      "default": false
+    },
+    "ButtonType": {
+      "type": "enumeration",
+      "enum": [
+        "Link ",
+        "Primary ",
+        "Secondary"
+      ]
+    }
+  },
+  "config": {
+    
+  }
+}
