@@ -11,14 +11,10 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "text": {
-      "type": "string"
-    },
-    "links": {
+    "UseFullLinks": {
       "type": "component",
-      "repeatable": true,
-      "component": "shared.links"
+      "component": "footer-link.footer-link",
+      "repeatable": true
     }
   }
 }
-

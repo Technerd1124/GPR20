@@ -41,13 +41,27 @@ export interface CommonSeo extends Struct.ComponentSchema {
   };
 }
 
+export interface FooterLinkFooterLink extends Struct.ComponentSchema {
+  collectionName: 'components_footer_link_footer_links';
+  info: {
+    displayName: 'FooterLink';
+  };
+  attributes: {
+    IsExternal: Schema.Attribute.Boolean;
+    Label: Schema.Attribute.String;
+    Url: Schema.Attribute.String;
+  };
+}
+
 export interface LogoLogo extends Struct.ComponentSchema {
   collectionName: 'components_logo_logos';
   info: {
     displayName: 'Logo';
   };
   attributes: {
-    logo_img: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    alt_text: Schema.Attribute.String;
+    href: Schema.Attribute.String;
+    logo_img: Schema.Attribute.Media<'images' | 'files'>;
   };
 }
 
@@ -152,9 +166,9 @@ export interface SharedLinks extends Struct.ComponentSchema {
   };
   attributes: {
     ButtonType: Schema.Attribute.Enumeration<['link', 'Primary', 'Secondary']>;
-    isButton: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
+    IsExternal: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
     Label: Schema.Attribute.String;
-    Links: Schema.Attribute.Component<'shared.sublink', true>;
+    SubLinks: Schema.Attribute.Component<'shared.sublink', true>;
     URL: Schema.Attribute.String;
   };
 }
@@ -174,12 +188,27 @@ export interface SharedSublink extends Struct.ComponentSchema {
   };
 }
 
+export interface SocialMediaLinkSocials extends Struct.ComponentSchema {
+  collectionName: 'components_social_media_link_socials';
+  info: {
+    displayName: 'Socials';
+  };
+  attributes: {
+    IsExternal: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
+    SocialLogo: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios'
+    >;
+    SocialUrl: Schema.Attribute.String;
+  };
+}
+
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
       'common.button': CommonButton;
       'common.image-with-alt': CommonImageWithAlt;
       'common.seo': CommonSeo;
+      'footer-link.footer-link': FooterLinkFooterLink;
       'logo.logo': LogoLogo;
       'sections.cta': SectionsCta;
       'sections.faq': SectionsFaq;
@@ -191,6 +220,7 @@ declare module '@strapi/strapi' {
       'sections.testimonial': SectionsTestimonial;
       'shared.links': SharedLinks;
       'shared.sublink': SharedSublink;
+      'social-media-link.socials': SocialMediaLinkSocials;
     }
   }
 }

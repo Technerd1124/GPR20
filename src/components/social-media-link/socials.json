@@ -1,0 +1,27 @@
+{
+  "collectionName": "components_social_media_link_socials",
+  "info": {
+    "displayName": "Socials"
+  },
+  "options": {},
+  "attributes": {
+    "SocialLogo": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "SocialUrl": {
+      "type": "string"
+    },
+    "IsExternal": {
+      "type": "boolean",
+      "default": true
+    }
+  },
+  "config": {}
+}

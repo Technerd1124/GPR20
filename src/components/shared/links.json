@@ -12,7 +12,7 @@
       "type": "string",
       "required": false
     },
-    "isButton": {
+    "IsExternal": {
       "type": "boolean",
       "default": false
     },
@@ -24,7 +24,7 @@
         "Secondary"
       ]
     },
-    "Links": {
+    "SubLinks": {
       "type": "component",
       "component": "shared.sublink",
       "repeatable": true

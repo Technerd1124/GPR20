@@ -16,10 +16,10 @@
       "component": "shared.links",
       "repeatable": true
     },
-    "lOGO": {
+    "logo_gpr": {
       "type": "component",
       "component": "logo.logo",
-      "repeatable": true
+      "repeatable": false
     }
   }
 }
