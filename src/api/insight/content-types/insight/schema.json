@@ -1,0 +1,37 @@
+{
+  "kind": "singleType",
+  "collectionName": "insights",
+  "info": {
+    "singularName": "insight",
+    "pluralName": "insights",
+    "displayName": "Insight"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "BlogMedia": {
+      "type": "component",
+      "component": "common.image-with-alt",
+      "repeatable": true
+    },
+    "author": {
+      "type": "string"
+    },
+    "Date": {
+      "type": "date"
+    },
+    "BlogTitle": {
+      "type": "string"
+    },
+    "BlogContent": {
+      "type": "blocks"
+    },
+    "Link": {
+      "type": "component",
+      "component": "shared.links",
+      "repeatable": true
+    }
+  }
+}

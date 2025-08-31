@@ -1,0 +1,20 @@
+{
+  "kind": "singleType",
+  "collectionName": "client_sections",
+  "info": {
+    "singularName": "client-section",
+    "pluralName": "client-sections",
+    "displayName": "ClientSection"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Testimonial": {
+      "type": "component",
+      "component": "sections.testimonial",
+      "repeatable": true
+    }
+  }
+}

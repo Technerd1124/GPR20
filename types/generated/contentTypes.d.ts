@@ -410,6 +410,34 @@ export interface AdminUser extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiClientSectionClientSection extends Struct.SingleTypeSchema {
+  collectionName: 'client_sections';
+  info: {
+    displayName: 'ClientSection';
+    pluralName: 'client-sections';
+    singularName: 'client-section';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::client-section.client-section'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    Testimonial: Schema.Attribute.Component<'sections.testimonial', true>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiContactPageContactPage extends Struct.SingleTypeSchema {
   collectionName: 'contact_pages';
   info: {
@@ -430,6 +458,7 @@ export interface ApiContactPageContactPage extends Struct.SingleTypeSchema {
       'api::contact-page.contact-page'
     > &
       Schema.Attribute.Private;
+    LogoContact: Schema.Attribute.Component<'logo.logo', false>;
     publishedAt: Schema.Attribute.DateTime;
     Socials: Schema.Attribute.Component<'social-media-link.socials', true>;
     updatedAt: Schema.Attribute.DateTime;
@@ -441,7 +470,7 @@ export interface ApiContactPageContactPage extends Struct.SingleTypeSchema {
 export interface ApiFooterFooter extends Struct.SingleTypeSchema {
   collectionName: 'footers';
   info: {
-    displayName: 'Footer';
+    displayName: 'footer';
     pluralName: 'footers';
     singularName: 'footer';
   };
@@ -458,7 +487,9 @@ export interface ApiFooterFooter extends Struct.SingleTypeSchema {
       'api::footer.footer'
     > &
       Schema.Attribute.Private;
+    Logo: Schema.Attribute.Component<'logo.logo', true>;
     publishedAt: Schema.Attribute.DateTime;
+    Socials: Schema.Attribute.Component<'social-media-link.socials', true>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -495,13 +526,76 @@ export interface ApiHeaderHeader extends Struct.SingleTypeSchema {
   };
 }
 
-export interface ApiPagePage extends Struct.CollectionTypeSchema {
-  collectionName: 'pages';
+export interface ApiHeroSectionHeroSection extends Struct.SingleTypeSchema {
+  collectionName: 'hero_sections';
   info: {
-    description: 'Website pages with flexible sections';
-    displayName: 'Page';
-    pluralName: 'pages';
-    singularName: 'page';
+    displayName: 'HeroSection';
+    pluralName: 'hero-sections';
+    singularName: 'hero-section';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    BackgroundHero: Schema.Attribute.Media<'images' | 'videos'>;
+    completeProjectNo: Schema.Attribute.Integer;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::hero-section.hero-section'
+    > &
+      Schema.Attribute.Private;
+    MainDescription: Schema.Attribute.Text;
+    MainSlogan: Schema.Attribute.Text;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiInsightInsight extends Struct.SingleTypeSchema {
+  collectionName: 'insights';
+  info: {
+    displayName: 'Insight';
+    pluralName: 'insights';
+    singularName: 'insight';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    author: Schema.Attribute.String;
+    BlogContent: Schema.Attribute.Blocks;
+    BlogMedia: Schema.Attribute.Component<'common.image-with-alt', true>;
+    BlogTitle: Schema.Attribute.String;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    Date: Schema.Attribute.Date;
+    Link: Schema.Attribute.Component<'shared.links', true>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::insight.insight'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiTeamSectionTeamSection extends Struct.SingleTypeSchema {
+  collectionName: 'team_sections';
+  info: {
+    displayName: 'TeamSection';
+    pluralName: 'team-sections';
+    singularName: 'team-section';
   };
   options: {
     draftAndPublish: true;
@@ -511,14 +605,12 @@ export interface ApiPagePage extends Struct.CollectionTypeSchema {
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
-    localizations: Schema.Attribute.Relation<'oneToMany', 'api::page.page'> &
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::team-section.team-section'
+    > &
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
-    sections: Schema.Attribute.DynamicZone<
-      ['sections.hero', 'sections.cta', 'sections.features', 'sections.faq']
-    >;
-    slug: Schema.Attribute.UID<'title'>;
-    title: Schema.Attribute.String & Schema.Attribute.Required;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -1035,10 +1127,13 @@ declare module '@strapi/strapi' {
       'admin::transfer-token': AdminTransferToken;
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
+      'api::client-section.client-section': ApiClientSectionClientSection;
       'api::contact-page.contact-page': ApiContactPageContactPage;
       'api::footer.footer': ApiFooterFooter;
       'api::header.header': ApiHeaderHeader;
-      'api::page.page': ApiPagePage;
+      'api::hero-section.hero-section': ApiHeroSectionHeroSection;
+      'api::insight.insight': ApiInsightInsight;
+      'api::team-section.team-section': ApiTeamSectionTeamSection;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
       'plugin::i18n.locale': PluginI18NLocale;

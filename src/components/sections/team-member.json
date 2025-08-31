@@ -1,0 +1,31 @@
+{
+  "collectionName": "components_sections_team_members",
+  "info": {
+    "displayName": "TeamMember"
+  },
+  "options": {},
+  "attributes": {
+    "MemberPhoto": {
+      "type": "media",
+      "multiple": true,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "MemberName": {
+      "type": "string"
+    },
+    "Role": {
+      "type": "string"
+    },
+    "Socials": {
+      "type": "component",
+      "component": "social-media-link.socials",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}

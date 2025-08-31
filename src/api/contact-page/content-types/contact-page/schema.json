@@ -15,6 +15,11 @@
       "type": "component",
       "component": "social-media-link.socials",
       "repeatable": true
+    },
+    "LogoContact": {
+      "type": "component",
+      "component": "logo.logo",
+      "repeatable": false
     }
   }
 }

@@ -4,7 +4,7 @@
   "info": {
     "singularName": "footer",
     "pluralName": "footers",
-    "displayName": "Footer"
+    "displayName": "footer"
   },
   "options": {
     "draftAndPublish": true
@@ -14,6 +14,16 @@
     "UseFullLinks": {
       "type": "component",
       "component": "footer-link.footer-link",
+      "repeatable": true
+    },
+    "Logo": {
+      "type": "component",
+      "component": "logo.logo",
+      "repeatable": true
+    },
+    "Socials": {
+      "type": "component",
+      "component": "social-media-link.socials",
       "repeatable": true
     }
   }

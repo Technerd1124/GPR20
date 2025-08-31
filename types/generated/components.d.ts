@@ -77,27 +77,6 @@ export interface SectionsCta extends Struct.ComponentSchema {
   };
 }
 
-export interface SectionsFaq extends Struct.ComponentSchema {
-  collectionName: 'components_sections_faqs';
-  info: {
-    displayName: 'FAQ';
-  };
-  attributes: {
-    items: Schema.Attribute.Component<'sections.faq_item', true>;
-  };
-}
-
-export interface SectionsFaqItem extends Struct.ComponentSchema {
-  collectionName: 'components_sections_faq_items';
-  info: {
-    displayName: 'FAQ Item';
-  };
-  attributes: {
-    answer: Schema.Attribute.RichText;
-    question: Schema.Attribute.String;
-  };
-}
-
 export interface SectionsFeatureItem extends Struct.ComponentSchema {
   collectionName: 'components_sections_feature_items';
   info: {
@@ -136,13 +115,19 @@ export interface SectionsHero extends Struct.ComponentSchema {
   };
 }
 
-export interface SectionsRichText extends Struct.ComponentSchema {
-  collectionName: 'components_sections_rich_texts';
+export interface SectionsTeamMember extends Struct.ComponentSchema {
+  collectionName: 'components_sections_team_members';
   info: {
-    displayName: 'Rich Text';
+    displayName: 'TeamMember';
   };
   attributes: {
-    content: Schema.Attribute.RichText;
+    MemberName: Schema.Attribute.String;
+    MemberPhoto: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios',
+      true
+    >;
+    Role: Schema.Attribute.String;
+    Socials: Schema.Attribute.Component<'social-media-link.socials', true>;
   };
 }
 
@@ -152,7 +137,7 @@ export interface SectionsTestimonial extends Struct.ComponentSchema {
     displayName: 'Testimonial';
   };
   attributes: {
-    author: Schema.Attribute.String;
+    authorName: Schema.Attribute.String;
     authorTitle: Schema.Attribute.String;
     avatar: Schema.Attribute.Media<'images'>;
     quote: Schema.Attribute.Text;
@@ -211,12 +196,10 @@ declare module '@strapi/strapi' {
       'footer-link.footer-link': FooterLinkFooterLink;
       'logo.logo': LogoLogo;
       'sections.cta': SectionsCta;
-      'sections.faq': SectionsFaq;
-      'sections.faq_item': SectionsFaqItem;
       'sections.feature_item': SectionsFeatureItem;
       'sections.features': SectionsFeatures;
       'sections.hero': SectionsHero;
-      'sections.rich_text': SectionsRichText;
+      'sections.team-member': SectionsTeamMember;
       'sections.testimonial': SectionsTestimonial;
       'shared.links': SharedLinks;
       'shared.sublink': SharedSublink;
